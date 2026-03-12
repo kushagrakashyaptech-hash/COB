@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Campaign - CreatorMatch AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">AI is validating your campaign...</div>
+    <div class="loading-sub">Checking budget cap and running ML engine</div>
+</div>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="gradient-text">CreatorMatch</span>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main</div>
+            <a href="brand-dashboard.html" class="sidebar-link">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="campaign-create.html" class="sidebar-link active">
+                <i class="fas fa-plus-circle"></i> New Campaign
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-bullhorn"></i> My Campaigns
+            </a>
+            <a href="recommendations.html" class="sidebar-link">
+                <i class="fas fa-robot"></i> AI Matches
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Analytics</div>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-chart-bar"></i> Campaign Stats
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-dollar-sign"></i> Budget Tracker
+            </a>
+        </div>
+        <div class="sidebar-bottom">
+            <div class="sidebar-user">
+                <div class="user-avatar"
+                    style="background:linear-gradient(135deg, #ec4899,#f59e0b)">
+                    TG
+                </div>
+                <div class="user-info">
+                    <div class="user-name">TechGear Pro</div>
+                    <div class="user-role">Brand • Growth Plan</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="campaign-form-page">
+        <div class="campaign-form-wrap">
+
+            <!-- BACK LINK -->
+            <a href="brand-dashboard.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+
+            <!-- STEP INDICATOR -->
+            <div class="step-indicator" style="margin-bottom:32px">
+                <div class="step-item active" id="step-ind-1">
+                    <div class="step-circle">1</div>
+                    <span class="step-item-label">Campaign</span>
+                </div>
+                <div class="step-connector" id="conn-1"></div>
+                <div class="step-item" id="step-ind-2">
+                    <div class="step-circle">2</div>
+                    <span class="step-item-label">Budget</span>
+                </div>
+                <div class="step-connector" id="conn-2"></div>
+                <div class="step-item" id="step-ind-3">
+                    <div class="step-circle">3</div>
+                    <span class="step-item-label">Verify</span>
+                </div>
+            </div>
+
+            <div class="campaign-form-card">
+                <div class="campaign-form-header">
+                    <h2>Create <span class="gradient-text">Campaign</span></h2>
+                    <p>Fill in your campaign details and let AI find the best creators</p>
+                </div>
+
+                <form id="campaignForm" novalidate>
+
+                    <!-- STEP 1 - CAMPAIGN DETAILS -->
+                    <div class="form-step-panel active" id="panel-1">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Product Name <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-box i-icon"></i>
+                                    <input type="text" class="form-control"
+                                        id="productName"
+                                        placeholder="e.g. TechGear Pro X1"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Category <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-tag i-icon"></i>
+                                    <select class="form-control"
+                                        id="productCategory" required>
+                                        <option value="">Select category</option>
+                                        <option>Electronics & Gadgets</option>
+                                        <option>Fashion & Apparel</option>
+                                        <option>Beauty & Cosmetics</option>
+                                        <option>Food & Beverage</option>
+                                        <option>Health & Supplements</option>
+                                        <option>Gaming</option>
+                                        <option>Software & Apps</option>
+                                        <option>Education & Courses</option>
+                                        <option>Home & Living</option>
+                                        <option>Sports & Fitness</option>
+                                        <option>Travel & Experiences</option>
+                                        <option>Finance & Fintech</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Description <span class="req">*</span></label>
+                            <textarea class="form-control"
+                                id="productDesc"
+                                placeholder="Describe your product, its features, and what makes it unique..."
+                                rows="4" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Campaign Goal <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-bullseye i-icon"></i>
+                                    <select class="form-control"
+                                        id="campaignGoal" required>
+                                        <option value="">Select goal</option>
+                                        <option>Brand Awareness</option>
+                                        <option>Product Sales</option>
+                                        <option>App Downloads</option>
+                                        <option>Website Traffic</option>
+                                        <option>Social Followers</option>
+                                        <option>Lead Generation</option>
+                                        <option>Event Promotion</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Campaign Duration <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-clock i-icon"></i>
+                                    <select class="form-control"
+                                        id="campaignDuration" required>
+                                        <option value="">Select duration</option>
+                                        <option>1 Week</option>
+                                        <option>2 Weeks</option>
+                                        <option>1 Month</option>
+                                        <option>2 Months</option>
+                                        <option>3 Months</option>
+                                        <option>6 Months</option>
+                                        <option>Ongoing</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Target Audience Age <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-users i-icon"></i>
+                                    <select class="form-control"
+                                        id="targetAge" required>
+                                        <option value="">Select age group</option>
+                                        <option>13-17 (Teens)</option>
+                                        <option>18-24 (Gen Z)</option>
+                                        <option>25-34 (Young Adults)</option>
+                                        <option>35-44 (Adults)</option>
+                                        <option>45+ (Mature)</option>
+                                        <option>All Ages</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Target Location <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-map-marker-alt i-icon"></i>
+                                    <select class="form-control"
+                                        id="targetLocation" required>
+                                        <option value="">Select location</option>
+                                        <option>India</option>
+                                        <option>United States</option>
+                                        <option>United Kingdom</option>
+                                        <option>Global</option>
+                                        <option>South Asia</option>
+                                        <option>Southeast Asia</option>
+                                        <option>Europe</option>
+                                        <option>Middle East</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-nav">
+                            <div></div>
+                            <button type="button" class="btn btn-primary"
+                                onclick="nextStep(1)">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 - BUDGET & CAPACITY -->
+                    <div class="form-step-panel" id="panel-2">
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                Our AI will validate your budget against your
+                                company's investment cap based on company age
+                                and revenue data.
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Marketing Budget (USD) <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-dollar-sign i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="marketingBudget"
+                                        placeholder="e.g. 5000"
+                                        min="100"
+                                        required
+                                        oninput="updateBudgetDisplay(this.value)">
+                                </div>
+                                <div class="form-hint">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Will be validated against your investment cap
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Stock / Campaign Capacity <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-boxes i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="stockAmount"
+                                        placeholder="e.g. 500"
+                                        min="1"
+                                        required
+                                        oninput="updateScaleDisplay(this.value)">
+                                </div>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i>
+                                    Used to classify campaign scale (Small/Medium/Large)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SCALE PREVIEW -->
+                        <div id="scalePreview" style="display:none;
+                            margin-bottom:20px">
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    Campaign Scale:
+                                    <strong id="scaleText">Medium</strong> —
+                                    AI will match creators accordingly
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Cost Per Creator (USD)</label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-user-tag i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="costPerCreator"
+                                        placeholder="e.g. 500">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Creators Needed</label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-users i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="creatorsNeeded"
+                                        placeholder="e.g. 10">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Creator Tier</label>
+                            <div style="display:grid;
+                                grid-template-columns:repeat(3,1fr);
+                                gap:12px;margin-top:8px">
+                                <div class="plan-option selected"
+                                    onclick="selectTier(this,'any')">
+                                    <input type="radio" name="tier"
+                                        value="any" checked>
+                                    <div class="plan-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="plan-option-name">Any Tier</div>
+                                    <div class="plan-option-sub">
+                                        AI decides best
+                                    </div>
+                                </div>
+                                <div class="plan-option"
+                                    onclick="selectTier(this,'micro')">
+                                    <input type="radio" name="tier"
+                                        value="micro">
+                                    <div class="plan-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="plan-option-name">Micro</div>
+                                    <div class="plan-option-sub">Under 50K</div>
+                                </div>
+                                <div class="plan-option"
+                                    onclick="selectTier(this,'mid')">
+                                    <input type="radio" name="tier"
+                                        value="mid">
+                                    <div class="plan-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="plan-option-name">Mid</div>
+                                    <div class="plan-option-sub">50K - 500K</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline"
+                                onclick="prevStep(2)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="validateBudget()">
+                                Validate Budget
+                                <i class="fas fa-shield-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 - SALES VERIFICATION (conditional) -->
+                    <div class="form-step-panel" id="panel-3">
+
+                        <div class="verify-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="verify-alert-text">
+                                <h5>Sales Verification Required</h5>
+                                <p>Your budget exceeds the standard investment
+                                cap for your company age. Please provide
+                                sales data for AI verification.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Previous Quarter Sales (USD) <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-chart-line i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="quarterSales"
+                                        placeholder="e.g. 50000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Previous Year Sales (USD) <span class="req">*</span></label>
+                                <div class="input-wrap">
+                                    <i class="fas fa-calendar i-icon"></i>
+                                    <input type="number" class="form-control"
+                                        id="yearSales"
+                                        placeholder="e.g. 200000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Revenue Proof Document</label>
+                            <div class="file-upload">
+                                <input type="file" accept=".pdf,.jpg,.png">
+                                <div class="file-upload-icon">📄</div>
+                                <p>Drop your revenue document here</p>
+                                <span>PDF, JPG or PNG • Max 10MB</span>
+                            </div>
+                        </div>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline"
+                                onclick="prevStep(3)">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="submitCampaignBtn">
+                                <i class="fas fa-rocket"></i>
+                                Launch Campaign
+                            </button>
+                        </div>
+
+                        <!-- SKIP VERIFICATION -->
+                        <div style="text-align:center;margin-top:16px">
+                            <button type="submit"
+                                class="btn btn-ghost btn-sm"
+                                id="skipVerifyBtn">
+                                Skip verification & submit anyway
+                            </button>
+                            <p style="font-size:0.75rem;
+                                color:var(--text-muted);
+                                margin-top:8px">
+                                Campaign may be flagged for manual review
+                            </p>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

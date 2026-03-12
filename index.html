@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorMatch AI - Connect Creators & Brands</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="gradient-text">CreatorMatch</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#join">Join</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="#join" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-close" id="mobileClose">
+        <i class="fas fa-times"></i>
+    </div>
+    <ul>
+        <li><a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a></li>
+        <li><a href="#features" onclick="closeMobileMenu()">Features</a></li>
+        <li><a href="#join" onclick="closeMobileMenu()">Join</a></li>
+        <li><a href="#pricing" onclick="closeMobileMenu()">Pricing</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="creator-signup.html" class="btn btn-primary">Join as Creator</a></li>
+        <li><a href="brand-signup.html" class="btn btn-secondary">Join as Brand</a></li>
+    </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero-section" id="home">
+    <div class="hero-bg">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="hero-blob blob-3"></div>
+        <div class="hero-grid"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content-wrap">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    <span class="pulse-dot"></span>
+                    AI-Powered Matching Engine • Live
+                </div>
+                <h1 class="hero-title">
+                    Where <span class="gradient-text">Creators</span><br>
+                    Meet <span class="gradient-text-3">Brands</span><br>
+                    Through <span class="gradient-text-2">AI</span>
+                </h1>
+                <p class="hero-desc">
+                    Our machine learning engine analyzes engagement rates, niche
+                    compatibility, audience demographics and performance scores
+                    to find the perfect creator–brand match. No guesswork. Pure data.
+                </p>
+                <div class="hero-actions">
+                    <a href="creator-signup.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-user-circle"></i> Join as Creator
+                    </a>
+                    <a href="brand-signup.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-building"></i> Join as Brand
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num" data-count="10000">0</span>
+                        <span class="stat-label">Creators</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-num" data-count="500">0</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-num" data-count="98">0</span>
+                        <span class="stat-label">% Accuracy</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-num" data-count="2400">0</span>
+                        <span class="stat-label">Campaigns</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-main-visual">
+                    <div class="visual-center">
+                        <div class="visual-icon">⚡</div>
+                        <div class="visual-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card-float card-1">
+                    <div class="float-card-icon">🎯</div>
+                    <div>
+                        <div class="float-card-title">Match Score</div>
+                        <div class="float-card-value gradient-text">94.7%</div>
+                    </div>
+                </div>
+                <div class="hero-card-float card-2">
+                    <div class="float-card-icon">📈</div>
+                    <div>
+                        <div class="float-card-title">Engagement</div>
+                        <div class="float-card-value" style="color:var(--success)">8.4%</div>
+                    </div>
+                </div>
+                <div class="hero-card-float card-3">
+                    <div class="float-card-icon">🤖</div>
+                    <div>
+                        <div class="float-card-title">AI Status</div>
+                        <div class="float-card-value" style="color:var(--warning)">Analyzing...</div>
+                    </div>
+                </div>
+                <div class="hero-card-float card-4">
+                    <div class="float-card-icon">🏆</div>
+                    <div>
+                        <div class="float-card-title">Creator Tier</div>
+                        <div class="float-card-value" style="color:var(--accent)">Mid • 120K</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <span>AI Matching</span><span class="marquee-dot">✦</span>
+        <span>Creator Analytics</span><span class="marquee-dot">✦</span>
+        <span>Brand Campaigns</span><span class="marquee-dot">✦</span>
+        <span>ML Scoring</span><span class="marquee-dot">✦</span>
+        <span>Niche Detection</span><span class="marquee-dot">✦</span>
+        <span>Engagement Analysis</span><span class="marquee-dot">✦</span>
+        <span>Budget Validation</span><span class="marquee-dot">✦</span>
+        <span>ROI Optimization</span><span class="marquee-dot">✦</span>
+        <span>AI Matching</span><span class="marquee-dot">✦</span>
+        <span>Creator Analytics</span><span class="marquee-dot">✦</span>
+        <span>Brand Campaigns</span><span class="marquee-dot">✦</span>
+        <span>ML Scoring</span><span class="marquee-dot">✦</span>
+        <span>Niche Detection</span><span class="marquee-dot">✦</span>
+        <span>Engagement Analysis</span><span class="marquee-dot">✦</span>
+        <span>Budget Validation</span><span class="marquee-dot">✦</span>
+        <span>ROI Optimization</span><span class="marquee-dot">✦</span>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">✦ Process</div>
+            <h2>How <span class="gradient-text">It Works</span></h2>
+            <p>Three intelligent steps powered by machine learning</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <div class="step-icon-big">🎬</div>
+                <h4>Creator Connects YouTube</h4>
+                <p>Our AI fetches your channel data, analyzes engagement patterns, content niche, and audience demographics automatically.</p>
+                <div class="step-tags">
+                    <span class="mini-tag">Engagement Analysis</span>
+                    <span class="mini-tag">Niche Detection</span>
+                    <span class="mini-tag">Auto Tier</span>
+                </div>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <div class="step-icon-big">🏢</div>
+                <h4>Brand Creates Campaign</h4>
+                <p>Brand submits campaign details. ML model validates budget against company investment cap and classifies campaign scale.</p>
+                <div class="step-tags">
+                    <span class="mini-tag">Budget Validation</span>
+                    <span class="mini-tag">Scale Classification</span>
+                    <span class="mini-tag">Cap Check</span>
+                </div>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <div class="step-icon-big">🤖</div>
+                <h4>AI Ranks Best Matches</h4>
+                <p>ML engine scores creators using engagement rate, niche match, audience overlap, and follower tier to rank best fits.</p>
+                <div class="step-tags">
+                    <span class="mini-tag">ML Scoring</span>
+                    <span class="mini-tag">Ranked Results</span>
+                    <span class="mini-tag">Match %</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-section" id="features">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">✦ AI Features</div>
+            <h2>Powered by <span class="gradient-text">Machine Learning</span></h2>
+            <p>Not just a chatbot — a real ML recommendation engine</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(124,58,237,0.12);color:var(--primary-light)">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4>Engagement Analysis</h4>
+                <p>Analyzes likes, comments, shares, and view duration across all videos to compute a weighted engagement score.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text">40%</span>
+                    <span class="feature-stat-label">of match score</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(16,185,129,0.12);color:var(--success)">
+                    <i class="fas fa-crosshairs"></i>
+                </div>
+                <h4>Niche Detection</h4>
+                <p>NLP-based content classification identifies creator niche and matches it against brand product categories.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text">30%</span>
+                    <span class="feature-stat-label">of match score</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(236,72,153,0.12);color:var(--secondary)">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Budget Validation</h4>
+                <p>ML model checks if brand marketing budget is within the investment cap based on company age and revenue data.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text-3">Auto</span>
+                    <span class="feature-stat-label">validated</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(245,158,11,0.12);color:var(--warning)">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h4>Audience Matching</h4>
+                <p>Compares brand target audience demographics with creator audience data for maximum campaign relevance.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text">20%</span>
+                    <span class="feature-stat-label">of match score</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(6,182,212,0.12);color:var(--accent)">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h4>Creator Tier System</h4>
+                <p>Automatically classifies creators as Micro, Mid, or Large tier based on follower count and engagement metrics.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text-2">3 Tiers</span>
+                    <span class="feature-stat-label">auto assigned</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background:rgba(16,185,129,0.12);color:var(--success)"></div>
+                <!-- Continuing index.html features section -->
+                <h4>Performance Score</h4>
+                <p>Composite ML score combining engagement, growth rate, consistency, and audience quality into one number.</p>
+                <div class="feature-stat">
+                    <span class="feature-stat-num gradient-text">10%</span>
+                    <span class="feature-stat-label">of match score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN SECTION -->
+<section class="section join-section" id="join">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">✦ Get Started</div>
+            <h2>Choose Your <span class="gradient-text">Path</span></h2>
+            <p>Join as a creator or a brand and let AI do the matching</p>
+        </div>
+        <div class="join-grid">
+            <div class="join-card creator-join">
+                <span class="join-icon">🎬</span>
+                <h3>I'm a <span class="gradient-text">Creator</span></h3>
+                <p>Connect your YouTube channel, get analyzed by AI, and get matched with brands that fit your niche and audience perfectly.</p>
+                <ul class="join-perks">
+                    <li><i class="fas fa-check"></i> AI-powered brand matching</li>
+                    <li><i class="fas fa-check"></i> Performance analytics dashboard</li>
+                    <li><i class="fas fa-check"></i> Campaign recommendations</li>
+                    <li><i class="fas fa-check"></i> Engagement score tracking</li>
+                    <li><i class="fas fa-check"></i> Creator tier badge</li>
+                </ul>
+                <a href="creator-signup.html" class="btn btn-primary btn-full btn-lg">
+                    Join as Creator <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="join-divider">
+                <span>OR</span>
+            </div>
+            <div class="join-card brand-join">
+                <span class="join-icon">🏢</span>
+                <h3>I'm a <span class="gradient-text-3">Brand</span></h3>
+                <p>Create campaigns, set your budget, and let our ML engine find the most relevant creators for your product automatically.</p>
+                <ul class="join-perks">
+                    <li><i class="fas fa-check"></i> ML-ranked creator list</li>
+                    <li><i class="fas fa-check"></i> Budget validation system</li>
+                    <li><i class="fas fa-check"></i> Campaign analytics</li>
+                    <li><i class="fas fa-check"></i> ROI optimization</li>
+                    <li><i class="fas fa-check"></i> Investment cap checker</li>
+                </ul>
+                <a href="brand-signup.html" class="btn btn-secondary btn-full btn-lg">
+                    Join as Brand <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">✦ Pricing</div>
+            <h2>Simple <span class="gradient-text">Plans</span></h2>
+            <p>Choose the plan that fits your needs</p>
+        </div>
+        <div class="pricing-toggle">
+            <span class="toggle-label active" id="creatorToggle">Creator Plans</span>
+            <div class="toggle-switch" id="toggleSwitch" onclick="togglePricing()">
+                <div class="toggle-thumb" id="toggleThumb"></div>
+            </div>
+            <span class="toggle-label" id="brandToggle">Brand Plans</span>
+        </div>
+
+        <!-- CREATOR PLANS -->
+        <div class="pricing-grid pricing-plans" id="creatorPlans">
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">$0<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Basic profile</li>
+                    <li><i class="fas fa-check"></i> 3 campaign matches/month</li>
+                    <li><i class="fas fa-check"></i> Basic analytics</li>
+                    <li class="disabled"><i class="fas fa-times"></i> AI performance score</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority matching</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Advanced insights</li>
+                </ul>
+                <a href="creator-signup.html" class="btn btn-outline btn-full">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">$29<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Full profile + YouTube sync</li>
+                    <li><i class="fas fa-check"></i> Unlimited campaign matches</li>
+                    <li><i class="fas fa-check"></i> Advanced analytics</li>
+                    <li><i class="fas fa-check"></i> AI performance score</li>
+                    <li><i class="fas fa-check"></i> Engagement breakdown</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority matching</li>
+                </ul>
+                <a href="creator-signup.html" class="btn btn-primary btn-full">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">$99<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Everything in Pro</li>
+                    <li><i class="fas fa-check"></i> Priority matching</li>
+                    <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                    <li><i class="fas fa-check"></i> Custom analytics reports</li>
+                    <li><i class="fas fa-check"></i> Early access to features</li>
+                    <li><i class="fas fa-check"></i> API access</li>
+                </ul>
+                <a href="creator-signup.html" class="btn btn-outline btn-full">Get Started</a>
+            </div>
+        </div>
+
+        <!-- BRAND PLANS -->
+        <div class="pricing-grid pricing-plans hidden" id="brandPlans">
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="plan-price">$49<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 1 active campaign</li>
+                    <li><i class="fas fa-check"></i> Top 10 creator matches</li>
+                    <li><i class="fas fa-check"></i> Basic budget validation</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Advanced ML scoring</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Campaign analytics</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
+                </ul>
+                <a href="brand-signup.html" class="btn btn-outline btn-full">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-name">Growth</div>
+                <div class="plan-price">$149<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 5 active campaigns</li>
+                    <li><i class="fas fa-check"></i> Full ML-ranked creator list</li>
+                    <li><i class="fas fa-check"></i> Advanced budget validation</li>
+                    <li><i class="fas fa-check"></i> Campaign analytics</li>
+                    <li><i class="fas fa-check"></i> Score breakdown view</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
+                </ul>
+                <a href="brand-signup.html" class="btn btn-primary btn-full">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">$499<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Unlimited campaigns</li>
+                    <li><i class="fas fa-check"></i> Full ML engine access</li>
+                    <li><i class="fas fa-check"></i> Custom investment cap rules</li>
+                    <li><i class="fas fa-check"></i> White-label reports</li>
+                    <li><i class="fas fa-check"></i> Priority support 24/7</li>
+                    <li><i class="fas fa-check"></i> API access + webhooks</li>
+                </ul>
+                <a href="brand-signup.html" class="btn btn-outline btn-full">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:16px">
+                    <div class="logo-icon">⚡</div>
+                    <span class="gradient-text" style="font-size:1.4rem;font-weight:900">CreatorMatch</span>
+                </div>
+                <p>AI-powered platform connecting creators and brands through machine learning. No guesswork. Pure data-driven matching.</p>
+                <div class="footer-socials">
+                    <div class="social-btn"><i class="fab fa-twitter"></i></div>
+                    <div class="social-btn"><i class="fab fa-instagram"></i></div>
+                    <div class="social-btn"><i class="fab fa-linkedin"></i></div>
+                    <div class="social-btn"><i class="fab fa-youtube"></i></div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Platform</h5>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">AI Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="creator-signup.html">For Creators</a></li>
+                    <li><a href="brand-signup.html">For Brands</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 CreatorMatch AI. All rights reserved.</p>
+            <p>Built with ❤️ for creators and brands</p>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

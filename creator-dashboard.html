@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Dashboard - CreatorMatch AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">AI is analyzing your channel...</div>
+    <div class="loading-sub">Fetching engagement data and computing scores</div>
+</div>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="gradient-text">CreatorMatch</span>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main</div>
+            <a href="creator-dashboard.html" class="sidebar-link active">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-chart-bar"></i> Analytics
+                <span class="sidebar-badge">New</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-bullhorn"></i> Campaigns
+                <span class="sidebar-badge">3</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-star"></i> Matches
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Profile</div>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-user"></i> My Profile
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fab fa-youtube"></i> YouTube Data
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Support</div>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-question-circle"></i> Help Center
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fas fa-headset"></i> Support
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-user">
+                <div class="user-avatar">AK</div>
+                <div class="user-info">
+                    <div class="user-name">Aryan Kumar</div>
+                    <div class="user-role">Creator • Pro Plan</div>
+                </div>
+                <i class="fas fa-ellipsis-v"
+                    style="color:var(--text-muted);font-size:0.85rem"></i>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="dash-topbar">
+            <div class="dash-topbar-left">
+                <h2>Creator <span class="gradient-text">Dashboard</span></h2>
+                <p>Welcome back, Aryan! Your AI score was updated 2 hours ago.</p>
+            </div>
+            <div class="dash-topbar-right">
+                <div class="topbar-icon-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="topbar-icon-btn" style="position:relative">
+                    <i class="fas fa-bell"></i>
+                    <div class="notif-dot"></div>
+                </div>
+                <a href="index.html" class="btn btn-outline btn-sm">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+            <div class="stat-card stat-card-1">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon"
+                        style="background:rgba(124,58,237,0.15);color:var(--primary-light)">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-card-badge up">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+                <div class="stat-card-value">124.5K</div>
+                <div class="stat-card-label">Subscribers</div>
+            </div>
+
+            <div class="stat-card stat-card-2">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon"
+                        style="background:rgba(16,185,129,0.15);color:var(--success)">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-card-badge up">
+                        <i class="fas fa-arrow-up"></i> 8%
+                    </div>
+                </div>
+                <div class="stat-card-value">48.2K</div>
+                <div class="stat-card-label">Avg Views</div>
+            </div>
+
+            <div class="stat-card stat-card-3">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon"
+                        style="background:rgba(236,72,153,0.15);color:var(--secondary)">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-card-badge up">
+                        <i class="fas fa-arrow-up"></i> 3%
+                    </div>
+                </div>
+                <div class="stat-card-value">8.4%</div>
+                <div class="stat-card-label">Engagement Rate</div>
+            </div>
+
+            <div class="stat-card stat-card-4">
+                <div class="stat-card-header">
+                    <div class="stat-card-icon"
+                        style="background:rgba(6,182,212,0.15);color:var(--accent)">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="stat-card-badge up">
+                        <i class="fas fa-arrow-up"></i> 5%
+                    </div>
+                </div>
+                <div class="stat-card-value">87.3</div>
+                <div class="stat-card-label">AI Score</div>
+            </div>
+        </div>
+
+        <!-- SCORE + TIER ROW -->
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:24px;margin-bottom:32px">
+
+            <!-- SCORE RING CARD -->
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h4>Performance Score</h4>
+                    <span class="badge badge-mid">Mid Tier</span>
+                </div>
+                <div style="display:flex;flex-direction:column;
+                    align-items:center;gap:20px;padding:16px 0">
+                    <div class="score-ring">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="score-ring-bg" cx="60" cy="60" r="50"/>
+                            <circle class="score-ring-fill" id="scoreRingFill"
+                                cx="60" cy="60" r="50"
+                                stroke="url(#scoreGrad)"/>
+                            <defs>
+                                <linearGradient id="scoreGrad"
+                                    x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#7c3aed"/>
+                                    <stop offset="100%" stop-color="#ec4899"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="score-ring-text">
+                            <div class="score-ring-num gradient-text">87</div>
+                            <div class="score-ring-sub">/ 100</div>
+                        </div>
+                    </div>
+                    <div style="width:100%">
+                        <div style="margin-bottom:12px">
+                            <div style="display:flex;justify-content:space-between;
+                                font-size:0.8rem;margin-bottom:6px">
+                                <span style="color:var(--text-muted)">Engagement</span>
+                                <span style="color:white;font-weight:700">92/100</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:12px">
+                            <div style="display:flex;justify-content:space-between;
+                                font-size:0.8rem;margin-bottom:6px">
+                                <span style="color:var(--text-muted)">Niche Match</span>
+                                <span style="color:white;font-weight:700">85/100</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex;justify-content:space-between;
+                                font-size:0.8rem;margin-bottom:6px">
+                                <!-- Continuing creator-dashboard.html score section -->
+                                <span style="color:var(--text-muted)">Consistency</span>
+                                <span style="color:white;font-weight:700">78/100</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEWS CHART -->
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h4>Views Last 10 Videos</h4>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:var(--primary)"></div>
+                            Views
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:var(--secondary)"></div>
+                            Engagement
+                        </div>
+                    </div>
+                </div>
+                <div class="bar-chart" id="viewsChart">
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:60%;background:var(--gradient)">
+                            <div class="bar-tooltip">42K views</div>
+                        </div>
+                        <span class="bar-label">V1</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:80%;background:var(--gradient)">
+                            <div class="bar-tooltip">58K views</div>
+                        </div>
+                        <span class="bar-label">V2</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:45%;background:var(--gradient)">
+                            <div class="bar-tooltip">31K views</div>
+                        </div>
+                        <span class="bar-label">V3</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:90%;background:var(--gradient)">
+                            <div class="bar-tooltip">65K views</div>
+                        </div>
+                        <span class="bar-label">V4</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:70%;background:var(--gradient)">
+                            <div class="bar-tooltip">51K views</div>
+                        </div>
+                        <span class="bar-label">V5</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:55%;background:var(--gradient)">
+                            <div class="bar-tooltip">40K views</div>
+                        </div>
+                        <span class="bar-label">V6</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:85%;background:var(--gradient)">
+                            <div class="bar-tooltip">62K views</div>
+                        </div>
+                        <span class="bar-label">V7</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:65%;background:var(--gradient)">
+                            <div class="bar-tooltip">47K views</div>
+                        </div>
+                        <span class="bar-label">V8</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:75%;background:var(--gradient)">
+                            <div class="bar-tooltip">54K views</div>
+                        </div>
+                        <span class="bar-label">V9</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar" style="height:95%;background:var(--gradient)">
+                            <div class="bar-tooltip">69K views</div>
+                        </div>
+                        <span class="bar-label">V10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHARTS ROW -->
+        <div class="charts-grid" style="margin-bottom:32px">
+            <!-- ENGAGEMENT CHART -->
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h4>Engagement Breakdown</h4>
+                    <span class="badge badge-success">
+                        <i class="fas fa-arrow-up"></i> 3.2%
+                    </span>
+                </div>
+                <div class="bar-chart">
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:70%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">7.2%</div>
+                        </div>
+                        <span class="bar-label">Jan</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:60%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">6.1%</div>
+                        </div>
+                        <span class="bar-label">Feb</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:80%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">8.3%</div>
+                        </div>
+                        <span class="bar-label">Mar</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:75%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">7.8%</div>
+                        </div>
+                        <span class="bar-label">Apr</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:90%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">9.2%</div>
+                        </div>
+                        <span class="bar-label">May</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <div class="bar"
+                            style="height:85%;background:linear-gradient(135deg,#06b6d4,#7c3aed)">
+                            <div class="bar-tooltip">8.7%</div>
+                        </div>
+                        <span class="bar-label">Jun</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT DONUT -->
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <h4>Content Mix</h4>
+                </div>
+                <div class="donut-wrap">
+                    <div class="donut-chart">
+                        <svg viewBox="0 0 140 140">
+                            <circle cx="70" cy="70" r="54"
+                                fill="none" stroke="var(--border-light)"
+                                stroke-width="16"/>
+                            <circle cx="70" cy="70" r="54"
+                                fill="none" stroke="#7c3aed"
+                                stroke-width="16"
+                                stroke-dasharray="339.3"
+                                stroke-dashoffset="0"
+                                stroke-linecap="round"
+                                id="donut1"/>
+                            <circle cx="70" cy="70" r="54"
+                                fill="none" stroke="#ec4899"
+                                stroke-width="16"
+                                stroke-dasharray="339.3"
+                                stroke-dashoffset="237.5"
+                                stroke-linecap="round"
+                                id="donut2"/>
+                            <circle cx="70" cy="70" r="54"
+                                fill="none" stroke="#06b6d4"
+                                stroke-width="16"
+                                stroke-dasharray="339.3"
+                                stroke-dashoffset="305.4"
+                                stroke-linecap="round"
+                                id="donut3"/>
+                        </svg>
+                        <div class="donut-center">
+                            <div class="donut-center-num">3</div>
+                            <div class="donut-center-label">Types</div>
+                        </div>
+                    </div>
+                    <div class="donut-legend">
+                        <div class="donut-legend-item">
+                            <div class="donut-legend-left">
+                                <div class="donut-legend-dot"
+                                    style="background:#7c3aed"></div>
+                                Tutorials
+                            </div>
+                            <span class="donut-legend-val">60%</span>
+                        </div>
+                        <div class="donut-legend-item">
+                            <div class="donut-legend-left">
+                                <div class="donut-legend-dot"
+                                    style="background:#ec4899"></div>
+                                Reviews
+                            </div>
+                            <span class="donut-legend-val">20%</span>
+                        </div>
+                        <div class="donut-legend-item">
+                            <div class="donut-legend-left">
+                                <div class="donut-legend-dot"
+                                    style="background:#06b6d4"></div>
+                                Vlogs
+                            </div>
+                            <span class="donut-legend-val">20%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECOMMENDED CAMPAIGNS -->
+        <div style="margin-bottom:32px">
+            <div style="display:flex;align-items:center;
+                justify-content:space-between;margin-bottom:20px">
+                <h3 style="font-size:1.2rem">
+                    Recommended <span class="gradient-text">Campaigns</span>
+                </h3>
+                <span class="badge badge-primary">
+                    <i class="fas fa-robot"></i> AI Matched
+                </span>
+            </div>
+            <div class="campaigns-grid">
+
+                <!-- CAMPAIGN CARD 1 -->
+                <div class="campaign-card">
+                    <div class="campaign-card-header">
+                        <div class="campaign-brand">
+                            <div class="brand-logo"
+                                style="background:rgba(124,58,237,0.15)">🎮</div>
+                            <div>
+                                <div class="brand-name">TechGear Pro</div>
+                                <div class="brand-category">Technology</div>
+                            </div>
+                        </div>
+                        <div class="campaign-match-score">
+                            <div class="match-score-num">94%</div>
+                            <div class="match-score-label">Match</div>
+                        </div>
+                    </div>
+                    <div class="campaign-card-body">
+                        <p>Looking for tech creators to review our new wireless gaming headset. Perfect for gaming and tutorial channels.</p>
+                        <div class="campaign-tags">
+                            <span class="campaign-tag">Tech Review</span>
+                            <span class="campaign-tag">Gaming</span>
+                            <span class="campaign-tag">Mid Tier</span>
+                        </div>
+                    </div>
+                    <div class="campaign-card-footer">
+                        <div class="campaign-budget">
+                            Budget: <span>$500 - $1,500</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAMPAIGN CARD 2 -->
+                <div class="campaign-card">
+                    <div class="campaign-card-header">
+                        <div class="campaign-brand">
+                            <div class="brand-logo"
+                                style="background:rgba(16,185,129,0.15)">💊</div>
+                            <div>
+                                <div class="brand-name">HealthFirst</div>
+                                <div class="brand-category">Health & Wellness</div>
+                            </div>
+                        </div>
+                        <div class="campaign-match-score">
+                            <div class="match-score-num">87%</div>
+                            <div class="match-score-label">Match</div>
+                        </div>
+                    </div>
+                    <div class="campaign-card-body">
+                        <p>Promote our new vitamin supplement line to health-conscious audiences. Looking for authentic creators.</p>
+                        <div class="campaign-tags">
+                            <span class="campaign-tag">Health</span>
+                            <span class="campaign-tag">Lifestyle</span>
+                            <span class="campaign-tag">Mid Tier</span>
+                        </div>
+                    </div>
+                    <div class="campaign-card-footer">
+                        <div class="campaign-budget">
+                            Budget: <span>$300 - $800</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAMPAIGN CARD 3 -->
+                <div class="campaign-card">
+                    <div class="campaign-card-header">
+                        <div class="campaign-brand">
+                            <div class="brand-logo"
+                                style="background:rgba(245,158,11,0.15)">📚</div>
+                            <div>
+                                <div class="brand-name">LearnFast</div>
+                                <div class="brand-category">Education</div>
+                            </div>
+                        </div>
+                        <div class="campaign-match-score">
+                            <div class="match-score-num">82%</div>
+                            <div class="match-score-label">Match</div>
+                        </div>
+                    </div>
+                    <div class="campaign-card-body">
+                        <p>EdTech platform looking for tutorial creators to promote our new coding bootcamp to tech-savvy audiences.</p>
+                        <div class="campaign-tags">
+                            <span class="campaign-tag">Education</span>
+                            <span class="campaign-tag">Tech</span>
+                            <span class="campaign-tag">Mid Tier</span>
+                        </div>
+                    </div>
+                    <div class="campaign-card-footer">
+                        <div class="campaign-budget">
+                            Budget: <span>$400 - $1,000</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAMPAIGN CARD 4 -->
+                <div class="campaign-card">
+                    <div class="campaign-card-header">
+                        <div class="campaign-brand">
+                            <div class="brand-logo"
+                                style="background:rgba(236,72,153,0.15)">👟</div>
+                            <div>
+                                <div class="brand-name">StyleKick</div>
+                                <div class="brand-category">Fashion</div>
+                            </div>
+                        </div>
+                        <div class="campaign-match-score">
+                            <div class="match-score-num">76%</div>
+                            <!-- Continuing campaign card 4 -->
+                            <div class="match-score-label">Match</div>
+                        </div>
+                    </div>
+                    <div class="campaign-card-body">
+                        <p>Sneaker brand looking for lifestyle creators to showcase our new limited edition collection to young audiences.</p>
+                        <div class="campaign-tags">
+                            <span class="campaign-tag">Fashion</span>
+                            <span class="campaign-tag">Lifestyle</span>
+                            <span class="campaign-tag">Mid Tier</span>
+                        </div>
+                    </div>
+                    <div class="campaign-card-footer">
+                        <div class="campaign-budget">
+                            Budget: <span>$200 - $600</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
+                            
