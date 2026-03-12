@@ -1,0 +1,53 @@
+Git Commands Guide for Project Team (Frontend,
+Backend, Data Engineer, ML Engineer)
+This document lists the common Git commands each team member should use while working on
+the shared GitHub repository for the project. The workflow is the same for all roles but organized
+here separately for clarity.
+
+Frontend Developer Workflow
+• Clone the repository: git clone
+• Enter the project folder: cd influencer-platform
+• Always pull the latest code before starting work: git pull
+• Create a branch for frontend work: git checkout -b frontend-feature
+• Work inside the frontend/ folder
+• Stage changes: git add .
+• Commit changes: git commit -m 'Added frontend UI page'
+• Push branch to GitHub: git push origin frontend-feature
+
+Backend Developer Workflow
+• Clone the repository: git clone
+• Enter the project folder: cd influencer-platform
+• Pull latest changes: git pull
+• Create backend branch: git checkout -b backend-api
+• Work inside backend/ folder
+• Add changes: git add .
+• Commit code: git commit -m 'Added backend API endpoints'
+• Push code: git push origin backend-api
+
+Data Engineer Workflow
+• Clone the repository: git clone
+• Enter project directory: cd influencer-platform
+• Pull latest project updates: git pull
+• Create branch for data work: git checkout -b data-pipeline
+• Work inside data_engineering/ folder
+• Add dataset or scripts: git add .
+• Commit work: git commit -m 'Added dataset and preprocessing scripts'
+• Push branch: git push origin data-pipeline
+
+Machine Learning Engineer Workflow
+• Clone the repository: git clone
+• Navigate to project: cd influencer-platform
+• Pull latest updates: git pull
+• Create ML branch: git checkout -b ml-model
+• Work inside ml_model/ folder
+• Add model files: git add .
+• Commit model: git commit -m 'Added creator recommendation model'
+• Push branch: git push origin ml-model
+
+Basic Git Commands Summary (Used by Everyone)
+• git clone → download project from GitHub
+• git pull → get latest updates from teammates
+• git checkout -b → create a new branch
+• git add . → stage all changes
+• git commit -m 'message' → save changes locally
+• git push origin → upload changes to GitHub
